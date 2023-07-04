@@ -12,6 +12,7 @@ export const USER_NOT_FOUND_ERR = "User not found";
 export const USER_CREATE_FAILED_ERR = "Failed to create user";
 export const USER_UPDATE_FAILED_ERR = "Failed to update user";
 export const USER_DELETE_FAILED_ERR = "Failed to delete user";
+export const USER_CREATE_NOT_UNIQUE_ERR = "Account with this email already exist!"
 
 export const createUser = async (req: Request, res: Response) => {
   const { email, username, password, role } = req.body;
@@ -22,7 +23,19 @@ export const createUser = async (req: Request, res: Response) => {
   user.role = role;
   user.password = await PwdUtil.getHash(password);
 
+
+
   try {
+    const persists = await userRepository.findOne({
+      where: { email: email },
+    });
+    if (persists) {
+      res
+      .status(HttpStatusCodes.BAD_REQUEST)
+      .json({ error: USER_CREATE_NOT_UNIQUE_ERR });
+      return 
+    }
+
     const savedUser = await userRepository.save(user);
     res.status(HttpStatusCodes.CREATED).json(savedUser);
   } catch (error) {

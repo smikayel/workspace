@@ -1,4 +1,4 @@
-import { Entity, PrimaryGeneratedColumn, Column, OneToMany } from "typeorm";
+import { Entity, PrimaryGeneratedColumn, Column, OneToMany, Unique } from "typeorm";
 
 export enum Roles {
   Admin = "Admin",
@@ -15,6 +15,7 @@ export interface IUser {
 }
 
 @Entity()
+@Unique(["email", "username"]) 
 export class User {
   @PrimaryGeneratedColumn()
   public id!: number;

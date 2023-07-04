@@ -1,5 +1,5 @@
 {
-  "name": "hearst-be",
+  "name": "workspace-be",
   "version": "0.0.0",
   "scripts": {
     "build": "npx ts-node build.ts",

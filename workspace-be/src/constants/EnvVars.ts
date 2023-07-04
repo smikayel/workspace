@@ -14,7 +14,7 @@ export default {
 		Exp: '1h',
 	},
 	Database: {
-		databaseName: process.env.DATABASE_NAME ?? 'hearst',
+		databaseName: process.env.DATABASE_NAME ?? 'workspace',
 		host: process.env.DATABASE_HOST ?? 'localhost',
 		databasePort: process.env.DATABASE_PORT ?? 5432,
 		username: process.env.DATABASE_USERNAME ?? 'username',
@@ -24,6 +24,6 @@ export default {
 		TimeInterval: process.env.CRON_TIME_INTERVAL ?? 30,
 	},
 	BigQuery: {
-		projectId: process.env.GOOGLE_CLOUD_PROJECT ?? 'hearst-corporation',
+		projectId: process.env.GOOGLE_CLOUD_PROJECT ?? 'workspace-be',
 	},
 } as const

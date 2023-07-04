@@ -1,0 +1,41 @@
+import { Entity, PrimaryGeneratedColumn, Column, OneToMany } from "typeorm";
+
+export enum Roles {
+  Admin = "Admin",
+  User = "User",
+}
+
+export interface IUser {
+  id: number;
+  email: string;
+  role: string;
+  username: string | undefined;
+  password: string;
+
+}
+
+@Entity()
+export class User {
+  @PrimaryGeneratedColumn()
+  public id!: number;
+
+  @Column()
+  public email!: string;
+
+  @Column({
+    type: "enum",
+    enum: Roles,
+    default: Roles.User,
+  })
+  public role!: string;
+
+  @Column({
+    type: "varchar",
+    nullable: true,
+  })
+  public username!: string;
+
+  @Column()
+  public password!: string;
+
+}

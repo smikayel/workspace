@@ -1,0 +1,11 @@
+.WorkspaceContainer {
+    border-radius: 26px;
+    border: 1px solid #D6D6D6;
+    background: #FFF;
+    height: 80%;
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}

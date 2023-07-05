@@ -32,7 +32,6 @@ export function Workspace () {
                 <div className={styles.WorkspacesInfo}>
                     Count of Workspaces: {workspaces.length}
                 </div>
-
             </div>
         </div>
     )

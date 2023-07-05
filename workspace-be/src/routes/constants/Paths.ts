@@ -12,6 +12,9 @@ const Paths = {
   Auth: {
     Base: '/auth',
   },
+  Workspaces: {
+    Base: '/workspace',
+  },
 };
 
 export type TPaths = Immutable<typeof Paths>;

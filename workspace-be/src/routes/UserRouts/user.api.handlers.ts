@@ -67,8 +67,6 @@ export const getAllUsers = async (req: PaginationRequest, res: Response) => {
   }
 };
 
-export const getAll = async (req: Request, res: Response) => await userRepository.find();
-
 export async function updateOne(req: Request, res: Response): Promise<void> {
   if (!req.params.userId) {
     res
@@ -133,7 +131,7 @@ export async function _delete(req: Request, res: Response): Promise<void> {
 
 // **** Export default **** //
 export default {
-  getAll,
+  getAllUsers,
   createUser,
   updateOne,
   delete: _delete,

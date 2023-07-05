@@ -13,6 +13,7 @@ export const isAdmin = async (
 ) => {
 	try {
 		const user = req.user;
+		console.log(user)
 		if (!user || user?.role !== Roles.Admin) {
 			return res
 				.status(HttpStatusCodes.FORBIDDEN)

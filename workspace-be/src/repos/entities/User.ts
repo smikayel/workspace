@@ -1,4 +1,5 @@
 import { Entity, PrimaryGeneratedColumn, Column, OneToMany, Unique } from "typeorm";
+import { Workspace } from "./Workspace";
 
 export enum Roles {
   Admin = "Admin",
@@ -38,5 +39,8 @@ export class User {
 
   @Column()
   public password!: string;
+
+	@OneToMany(() => Workspace, (workspace) => workspace.user)
+	public workspaces!: Workspace[];
 
 }

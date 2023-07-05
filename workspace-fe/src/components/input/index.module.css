@@ -1,0 +1,23 @@
+.InputContainer {
+    padding: 15px;
+}
+
+.CustomInput {
+    border-radius: 10px;
+    border: 1px solid #EAEAEA;
+    background: #FFF;
+    color: #333;
+    font-size: 20px;
+    font-family: 'Fira Code';
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    box-shadow: 0px 10px 40px 0px rgba(174, 174, 174, 0.20);
+    outline: none;
+    height: 30px;
+    padding: 5px 10px 10px 5px;
+}
+
+.CustomInput:focus {
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}

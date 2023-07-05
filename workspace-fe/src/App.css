@@ -1,0 +1,9 @@
+@import url('https://fonts.googleapis.com/css?family=Fira+Code&display=swap');
+
+.App {
+  font-family: 'Fira Code', monospace;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}

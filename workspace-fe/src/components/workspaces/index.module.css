@@ -2,12 +2,13 @@
     border-radius: 26px;
     border: 1px solid #D6D6D6;
     background: #FFF;
-    height: 80%;
+    height: fit-content;
     width: 60%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    padding: 25px;
 }
 
 .WorkspacesInfo {
@@ -17,4 +18,29 @@
     font-weight: 400;
     line-height: normal;
     opacity: 0.8;
+}
+
+.EachWorkspace {
+    margin-top: 15px;
+    font-family: "Fira Code";
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    opacity: 0.8;
+    border-radius: 15px;
+    display: flex;
+    justify-content: space-between;
+    padding: 5px;
+    border: 1px solid #D6D6D6;
+}
+
+.warrning {
+    padding: 5px;
+    color: orange;
+    font-size: 15px;
+    font-family: 'Fira Code';
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
 }

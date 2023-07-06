@@ -24,9 +24,7 @@ export function SignIn () {
 
         try {
             const authResponse = await AuthService.login(email, password);
-            console.log(authResponse)
             if (authResponse) {
-                console.log('asd')
                 navigate('/');
             }
         } catch (err) {

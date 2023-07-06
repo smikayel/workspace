@@ -8,7 +8,7 @@ interface ProtectedRouteProps {
 const ProtectedRoutes: React.FC<ProtectedRouteProps> = ({
   children
 }) => {
-  const isAuthenticated = false// !!localStorage.getItem('jwtToken');
+  const isAuthenticated = localStorage.getItem('user');
 
   if (!isAuthenticated) {
     return <Navigate to="/sign-in" />;

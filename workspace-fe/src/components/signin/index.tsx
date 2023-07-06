@@ -4,28 +4,34 @@ import CustomInput from '../input'
 import CustomButton from '../button'
 import CustomError from '../error';
 import AuthService from "../../services/auth.service";
-
-import styles from './index.module.css'
+import { useNavigate  } from 'react-router-dom';
 import { AxiosError } from 'axios';
 
-interface signinError {
-    error: string
+import styles from './index.module.css'
+
+export interface requestError {
+    error?: string
+    message: string
 }
 
 export function SignIn () {
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
     const [error, setError] = useState('')
-
+    const navigate = useNavigate();
 
     const handleSignIn = async () => {
-        console.log('here')
+
         try {
-           const authResponse = await AuthService.login(email, password);
-           console.log(authResponse)
+            const authResponse = await AuthService.login(email, password);
+            console.log(authResponse)
+            if (authResponse) {
+                console.log('asd')
+                navigate('/');
+            }
         } catch (err) {
-            const data = (err as AxiosError).response?.data as signinError
-            setError(data.error)
+            const data = (err as AxiosError).response?.data as requestError
+            setError(data.error || data.message)
         }
 
     }

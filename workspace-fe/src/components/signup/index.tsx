@@ -3,6 +3,10 @@ import { Link } from 'react-router-dom';
 import CustomInput from '../input'
 import CustomButton from '../button'
 import CustomError from '../error';
+import AuthService from "../../services/auth.service";
+import { AxiosError } from 'axios';
+import { requestError } from '../signin';
+import { useNavigate  } from 'react-router-dom';
 
 import styles from './index.module.css'
 
@@ -12,9 +16,22 @@ export function SignUp () {
     const [password, setPassword] = useState('')
     const [rePass, setRePass] = useState('')
     const [error, setError] = useState('')
+    const navigate = useNavigate()
 
-    const handleSignUp = () => {
-        console.log('here should be something')
+    const handleSignUp = async () => {
+        try {
+            if (password != rePass) {
+                setError('passowrd and reentered password are different')
+                return
+            }
+            const registeredUser = await AuthService.register(username, email, password)
+            if (registeredUser) {
+                navigate('/sign-in')
+            }
+        } catch (err) {
+            const data = (err as AxiosError).response?.data as requestError
+            setError(data.error || data.message)
+        }
     }
 
     return (

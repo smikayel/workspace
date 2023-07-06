@@ -44,11 +44,11 @@ export const login = async (req: Request, res: Response) => {
     );
   }
   try {
-	const AuthToken = jwt.sign({ email, role: user.role, id: user.id }, EnvVars.Jwt.Secret, { expiresIn: EnvVars.Jwt.Exp });
-	res.status(HttpStatusCodes.OK).json({AuthToken, user});
+    const AuthToken = jwt.sign({ email, role: user.role, id: user.id }, EnvVars.Jwt.Secret, { expiresIn: EnvVars.Jwt.Exp });
+    res.status(HttpStatusCodes.OK).json({AuthToken, user});
   } catch (err) {
-	logger.err(err)
-	res.status(HttpStatusCodes.INTERNAL_SERVER_ERROR).json({ error: SOMETHING_WENT_WRONG_ERR });
+    logger.err(err)
+    res.status(HttpStatusCodes.INTERNAL_SERVER_ERROR).json({ error: SOMETHING_WENT_WRONG_ERR });
   }
 }
 

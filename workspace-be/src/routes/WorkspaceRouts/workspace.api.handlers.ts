@@ -106,11 +106,12 @@ export async function checkWorkspaceAvalability(req: Request, res: Response): Pr
   });
   if (!persists) {
     res.status(HttpStatusCodes.OK).json({message: "workspace slug avalable"});
+    return
   }
 
   try {
     const suggestion = generateUniqueSlug(req.params.workspaceSlug)
-    res.status(HttpStatusCodes.FOUND).json({suggestion});
+    res.status(HttpStatusCodes.OK).json({suggestion});
   } catch (err) {
     logger.err(err);
     res

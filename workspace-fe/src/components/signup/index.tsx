@@ -27,7 +27,7 @@ export function SignUp () {
                 <CustomInput placeholder='*********' value={password} type='password' onChange={setPassword}/> 
                 <CustomInput placeholder='Reenter passowrd' value={rePass} type='password' onChange={setRePass}/> 
             </div>
-            <CustomButton text="Sign Up" onChange={handleSignUp} />
+            <CustomButton text="Sign Up" onClick={handleSignUp} />
             <Link to='/sign-in' className={styles.HaveAccountRedirection}> Have an Account? Login </Link>
         </div>
     )

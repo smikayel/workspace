@@ -3,20 +3,16 @@ import style from './index.module.css'
 
 interface CustomButtonProps {
   text: string;
-  onChange: (value: string) => void;
+  onClick: () => void;
   customStyles?: CSSProperties;
 }
 
-const CustomButton: React.FC<CustomButtonProps> = ({ text, onChange, customStyles }) => {
-  const handleButtonChange = (event: ChangeEvent<HTMLButtonElement>) => {
-    const { value } = event.target;
-    onChange(value);
-  };
+const CustomButton: React.FC<CustomButtonProps> = ({ text, onClick, customStyles }) => {
 
   return (
     <div className={style.ButtonContainer}>
       <button className={style.CustomButton}
-        onChange={handleButtonChange}
+        onClick={() => onClick()}
         style={customStyles}
       >
         <div className={style.ButtonName}>{ text }</div>

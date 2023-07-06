@@ -26,7 +26,7 @@ export function Workspace () {
                 <CustomInput placeholder='name: Bee Weeb' value={name} onChange={setName}/> 
                 <CustomInput placeholder='slug: beeweeb' value={slug} type='password' onChange={setSlug}/> 
             </div>
-            <CustomButton text="Create Workspace" onChange={handleCreateWorkspace} customStyles={{background:'green'}}/>
+            <CustomButton text="Create Workspace" onClick={handleCreateWorkspace} customStyles={{background:'green'}}/>
             <h3>Your Workspaces</h3>
             <div>
                 <div className={styles.WorkspacesInfo}>
